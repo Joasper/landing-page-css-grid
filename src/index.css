@@ -51,7 +51,8 @@ body {
     "main4"
     "main5"
     "main6"
-    "main7";
+    "main7"
+    "main8";
 }
 
 .main__hero {
@@ -69,7 +70,7 @@ body {
 
 .hero-img {
   width: 45%;
-  max-width: 160px;
+  max-width: 100px;
 }
 
 .img-logo {
@@ -112,7 +113,10 @@ body {
 
 .btns-bottom {
   display: flex;
-  gap: 10px;
+  width: 267px;
+  position: relative;
+  left: 15px;
+  gap: 0px;
 }
 
 .main__main2 {
@@ -446,7 +450,7 @@ h3 {
 
 .img-card2 {
   position: relative;
-  left: 42px;
+  left: 36px;
 }
 
 .Section__Profecion2 {
@@ -507,6 +511,42 @@ h3 {
   left: 15px;
 }
 
+.main__footerPage {
+  grid-area: main8;
+}
+
+.section__main8 {
+  background-color: var(--App-Color);
+  position: relative;
+  bottom: 10px;
+}
+
+.card__footer__app {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.border__card__app {
+  border: 1px solid royalblue;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #13191f;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  text-align: justify;
+  justify-content: center;
+  align-items: center;
+}
+#root {
+  background-color: var(--App-Color);
+}
+
 @media (min-width: 708px) {
   .container {
     width: 85%;
@@ -540,7 +580,7 @@ h3 {
 
   .btn__Secundary {
     margin-top: 10px;
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .btn__Primary {

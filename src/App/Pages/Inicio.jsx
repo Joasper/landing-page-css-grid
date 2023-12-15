@@ -33,7 +33,7 @@ export const Inicio = () => {
           <figure className="hero-img">
             {" "}
             <img
-              src=".:/../Public/LIVEGOODIALOGO2.png"
+              src="../src/Public/LIVEGOODIALOGO2.png"
               alt=""
               srcset=""
               className="img-logo"
@@ -105,7 +105,7 @@ export const Inicio = () => {
                   <div className="card__border">
                     <picture className="Section__Perfil__Img">
                       <img
-                        src="../../../Public/image2.png"
+                        src="../src/Public/image2.png"
                         alt=""
                         srcset=""
                         className="img-card imagen"
@@ -121,7 +121,7 @@ export const Inicio = () => {
                   <div className="card__border">
                     <picture className="Section__Perfil__Img Section__Perfil__Img2">
                       <img
-                        src="../../../Public/image5.png"
+                        src="../src/Public/image5.png"
                         alt=""
                         srcset=""
                         className="img-card img-card2"
@@ -140,7 +140,7 @@ export const Inicio = () => {
                   <div className="card__border">
                     <picture className="Section__Perfil__Img">
                       <img
-                        src="../../../Public/image6.png"
+                        src="../src/Public/image6.png"
                         alt=""
                         srcset=""
                         className="img-card img-card3"
@@ -159,7 +159,7 @@ export const Inicio = () => {
                   <div className="card__border">
                     <picture className="Section__Perfil__Img">
                       <img
-                        src="../../../Public/image7.png"
+                        src="../src/Public/image7.png"
                         alt=""
                         srcset=""
                         className="img-card img-card4"
@@ -298,7 +298,7 @@ export const Inicio = () => {
                 <div>
                   <h3 style={contentStyle}>
                     <img
-                      src="../../../Public/image13.png"
+                      src="../src/Public/image13.png"
                       alt=""
                       className="img__Section__there"
                     />
@@ -307,7 +307,7 @@ export const Inicio = () => {
                 <div>
                   <h3 style={contentStyle} className="h3-carousel">
                     <img
-                      src="../../../Public/image12.png"
+                      src="../src/Public/image12.png"
                       alt=""
                       className="img__Section__there"
                     />
@@ -316,7 +316,7 @@ export const Inicio = () => {
                 <div>
                   <h3 style={contentStyle}>
                     <img
-                      src="../../../Public/image11.png"
+                      src="../src/Public/image11.png"
                       alt=""
                       className="img__Section__there"
                     />
@@ -325,7 +325,7 @@ export const Inicio = () => {
                 <div>
                   <h3 style={contentStyle}>
                     <img
-                      src="../../../Public/image10.png"
+                      src="../src/Public/image10.png"
                       alt=""
                       className="img__Section__there"
                     />
@@ -334,7 +334,7 @@ export const Inicio = () => {
                 <div>
                   <h3 style={contentStyle}>
                     <img
-                      src="../../../Public/image9.png"
+                      src="../src/Public/image9.png"
                       alt=""
                       className="img__Section__there"
                     />
@@ -343,7 +343,7 @@ export const Inicio = () => {
                 <div>
                   <h3 style={contentStyle}>
                     <img
-                      src="../../../Public/image8.png"
+                      src="../src/Public/image8.png"
                       alt=""
                       className="img__Section__there"
                     />
@@ -392,6 +392,118 @@ export const Inicio = () => {
           </h1>
           <BasicAccordion />
           <StepsApp />
+        </div>
+      </section>
+
+      <section className="section__main8">
+        <div className="main__footerPage container ontainer-fluid d-flex justify-content-center align-items-center">
+          <div
+            id="carouselExampleInterval"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="20000">
+                <div className="card__footer__app">
+                  <div className="card__icon">
+                    <img src="../src/Public/comillas.png" alt="" srcset="" />
+                  </div>
+                  <div className="border__card__app">
+                    <div className="img__card">
+                      <img src="../src/Public/live.png" alt="" srcset="" />
+                    </div>
+                    <div className="Description__card">
+                      <p className="descripcion">
+                        ¡La herramienta de IA de LiveGood cambio el juego! En
+                        minutos, elaboró una estrategia personalizada que se
+                        alinea perfectamente con mis metas. Ahora tengo un plan
+                        claro y acciones definidas que resuenan con mi estilo de
+                        vida y objetivos de negocio. Además, el bono de
+                        pre-registro fue instantáneo. ¡Esto es innovación de
+                        verdad!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className="card__footer__app">
+                  <div className="card__icon">
+                    <img src="../src/Public/comillas.png" alt="" srcset="" />
+                  </div>
+                  <div className="border__card__app">
+                    <div className="img__card">
+                      <img src="../src/Public/live.png" alt="" srcset="" />
+                    </div>
+                    <div className="Description__card">
+                      <p className="descripcion">
+                        ¡La herramienta de IA de LiveGood cambio el juego! En
+                        minutos, elaboró una estrategia personalizada que se
+                        alinea perfectamente con mis metas. Ahora tengo un plan
+                        claro y acciones definidas que resuenan con mi estilo de
+                        vida y objetivos de negocio. Además, el bono de
+                        pre-registro fue instantáneo. ¡Esto es innovación de
+                        verdad!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className="card__footer__app">
+                  <div className="card__icon">
+                    <img src="../src/Public/comillas.png" alt="" srcset="" />
+                  </div>
+                  <div className="border__card__app">
+                    <div className="img__card">
+                      <img src="../src/Public/live.png" alt="" srcset="" />
+                    </div>
+                    <div className="Description__card">
+                      <p className="descripcion">
+                        ¡La herramienta de IA de LiveGood cambio el juego! En
+                        minutos, elaboró una estrategia personalizada que se
+                        alinea perfectamente con mis metas. Ahora tengo un plan
+                        claro y acciones definidas que resuenan con mi estilo de
+                        vida y objetivos de negocio. Además, el bono de
+                        pre-registro fue instantáneo. ¡Esto es innovación de
+                        verdad!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev"
+              style={{
+                marginLeft: "-80px",
+              }}
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next"
+              style={{
+                marginRight: "-80px",
+              }}
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       </section>
     </main>
