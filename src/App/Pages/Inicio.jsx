@@ -1,25 +1,48 @@
 import { Button, InputAdornment, TextField } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiWallet } from "react-icons/ci";
 import { RiShareBoxLine } from "react-icons/ri";
 import { Carousel } from "antd";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import StepsApp from "../../Components/Steps";
+import VerticalLinearStepper from "../../Components/StepsMui";
+import BasicAccordion from "../../Components/StepsAntd-";
+
+import AcordeonPc from "../../Components/Steps";
+import Acordeonn from "../../Components/Acordeonn";
+import YourComponent from "../../Components/Circular";
+
 const contentStyle = {
   height: "200px",
   color: "#fff",
-  lineHeight: "160px",
+  lineHeight: "260px",
   textAlign: "center",
   background: "#1b2024",
 };
 
 export const Inicio = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    <YourComponent />;
+  }, []);
   return (
     <main className="main">
       <section className="main__hero">
         <nav className="main__nav container">
-          <img src=".:/../Public/LIVEGOODIALOGO2.png" alt="" srcset="" />
+          <figure className="hero-img">
+            {" "}
+            <img
+              src=".:/../Public/LIVEGOODIALOGO2.png"
+              alt=""
+              srcset=""
+              className="img-logo"
+            />
+          </figure>
+
           <div className="header__btns">
             <div className="btn_primary_btn">
-              <a href="" className="btn btn__Primary">
+              <a href="" className="btn btn__Primary celular">
                 Pagar Membresia
               </a>
             </div>
@@ -29,6 +52,9 @@ export const Inicio = () => {
               </a>
               <a href="" className="btn btn__Secundary">
                 Impulsa tu Red con IA
+              </a>
+              <a href="" className="btn btn__Primary destok">
+                Pagar Membresia
               </a>
             </div>
           </div>
@@ -50,11 +76,14 @@ export const Inicio = () => {
       <section className="main__main3">
         <div className="main__video container">
           <iframe
-            src="https://player.vimeo.com/video/894560725?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-            className="video"
+            width="560"
+            height="615"
+            src="https://www.youtube.com/embed/iG8vLsJNgZw?si=Wsq48VBIqZS8gsJE"
+            title="YouTube video player"
             frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="LiveGood-Pay.Network"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            className="livegood"
           ></iframe>
         </div>
         <div className="header__main__btn">
@@ -75,11 +104,14 @@ export const Inicio = () => {
                 <div className="main__cards">
                   <div className="card__border">
                     <picture className="Section__Perfil__Img">
-                      <img src="../../../Public/image2.png" alt="" srcset="" />
-                      <h6 class="Section__Profecion">
-                        CEO
-                        <p class="Section__Name">Ben Glinsky </p>
-                      </h6>
+                      <img
+                        src="../../../Public/image2.png"
+                        alt=""
+                        srcset=""
+                        className="img-card imagen"
+                      />
+                      <h6 class="Section__Profecion">CEO</h6>
+                      <p class="Section__Name">Ben Glinsky </p>
                     </picture>
                   </div>
                 </div>
@@ -87,12 +119,17 @@ export const Inicio = () => {
               <div className="item2">
                 <div className="main__cards">
                   <div className="card__border">
-                    <picture className="Section__Perfil__Img">
-                      <img src="../../../Public/image2.png" alt="" srcset="" />
-                      <h6 class="Section__Profecion">
-                        CEO
-                        <p class="Section__Name">Ben Glinsky </p>
+                    <picture className="Section__Perfil__Img Section__Perfil__Img2">
+                      <img
+                        src="../../../Public/image5.png"
+                        alt=""
+                        srcset=""
+                        className="img-card img-card2"
+                      />
+                      <h6 class="Section__Profecion Section__Profecion2">
+                        DIRECTOR DESARROLLO
                       </h6>
+                      <p class="Section__Name Section__Name2">Ryan Goodkin</p>
                     </picture>
                   </div>
                 </div>
@@ -102,10 +139,15 @@ export const Inicio = () => {
                 <div className="main__cards">
                   <div className="card__border">
                     <picture className="Section__Perfil__Img">
-                      <img src="../../../Public/image2.png" alt="" srcset="" />
-                      <h6 class="Section__Profecion">
-                        CEO
-                        <p class="Section__Name">Ben Glinsky </p>
+                      <img
+                        src="../../../Public/image6.png"
+                        alt=""
+                        srcset=""
+                        className="img-card img-card3"
+                      />
+                      <h6 class="Section__Profecion Section__Profecion3">
+                        DIRECTORA DE PRODUCTO
+                        <p class="Section__Name Section__Name3">Lisa Goodkin</p>
                       </h6>
                     </picture>
                   </div>
@@ -117,15 +159,15 @@ export const Inicio = () => {
                   <div className="card__border">
                     <picture className="Section__Perfil__Img">
                       <img
-                        src="../../../Public/image2.png"
+                        src="../../../Public/image7.png"
                         alt=""
                         srcset=""
-                        className="img"
+                        className="img-card img-card4"
                       />
-                      <h6 class="Section__Profecion">
-                        CEO
-                        <p class="Section__Name">Ben Glinsky </p>
+                      <h6 class="Section__Profecion Section__Profecion4">
+                        DIRECTOR DE RED
                       </h6>
+                      <p class="Section__Name Section__Name4">Nauder Khazan</p>
                     </picture>
                   </div>
                 </div>
@@ -151,28 +193,63 @@ export const Inicio = () => {
             formulario de pre-registro y como agradecimiento por unirte a
             nuestra misión, te daremos $1.00 USD Sí, así de sencillo.
           </p>
-          <form>
-            <TextField
-              className="Input"
-              variant="outlined"
-              placeholder="Ingresa Paypal o Monedero BTC"
-              InputProps={{
-                style: { color: "white" },
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <CiWallet color="white" fontSize={"20px"} />
-                  </InputAdornment>
-                ), // Cambiar el color del texto
-              }}
-              InputLabelProps={{
-                style: { color: "white" }, // Cambiar el color del texto del placeholder
-              }}
-            />
-            <div className="Text__fields__both">
+          <div className="formbox">
+            <form className="form">
               <TextField
-                className="Input both"
+                className="Input"
                 variant="outlined"
-                placeholder="Nombre"
+                placeholder="Ingresa Paypal o Monedero BTC"
+                InputProps={{
+                  style: { color: "white" },
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <CiWallet color="white" fontSize={"20px"} />
+                    </InputAdornment>
+                  ), // Cambiar el color del texto
+                }}
+                InputLabelProps={{
+                  style: { color: "white" }, // Cambiar el color del texto del placeholder
+                }}
+              />
+              <div className="Text__fields__both">
+                <TextField
+                  className="Input both"
+                  variant="outlined"
+                  placeholder="Nombre"
+                  InputProps={{
+                    style: { color: "white" }, // Cambiar el color del texto
+                  }}
+                  InputLabelProps={{
+                    style: { color: "white" }, // Cambiar el color del texto del placeholder
+                  }}
+                />
+                <TextField
+                  className="Input both"
+                  variant="outlined"
+                  placeholder="Apellido"
+                  InputProps={{
+                    style: { color: "white" }, // Cambiar el color del texto
+                  }}
+                  InputLabelProps={{
+                    style: { color: "white" }, // Cambiar el color del texto del placeholder
+                  }}
+                />
+              </div>
+              <TextField
+                className="Input"
+                variant="outlined"
+                placeholder="Telefono"
+                InputProps={{
+                  style: { color: "white" }, // Cambiar el color del texto
+                }}
+                InputLabelProps={{
+                  style: { color: "#737d82" }, // Cambiar el color del texto del placeholder
+                }}
+              />
+              <TextField
+                className="Input"
+                variant="outlined"
+                placeholder="Pais y Direccion"
                 InputProps={{
                   style: { color: "white" }, // Cambiar el color del texto
                 }}
@@ -180,60 +257,141 @@ export const Inicio = () => {
                   style: { color: "white" }, // Cambiar el color del texto del placeholder
                 }}
               />
-              <TextField
-                className="Input both"
-                variant="outlined"
-                placeholder="Apellido"
-                InputProps={{
-                  style: { color: "white" }, // Cambiar el color del texto
-                }}
-                InputLabelProps={{
-                  style: { color: "white" }, // Cambiar el color del texto del placeholder
-                }}
-              />
-            </div>
-            <TextField
-              className="Input"
-              variant="outlined"
-              placeholder="Telefono"
-              InputProps={{
-                style: { color: "white" }, // Cambiar el color del texto
-              }}
-              InputLabelProps={{
-                style: { color: "#737d82" }, // Cambiar el color del texto del placeholder
-              }}
-            />
-            <TextField
-              className="Input"
-              variant="outlined"
-              placeholder="Pais y Direccion"
-              InputProps={{
-                style: { color: "white" }, // Cambiar el color del texto
-              }}
-              InputLabelProps={{
-                style: { color: "white" }, // Cambiar el color del texto del placeholder
-              }}
-            />
 
-            <Button
-              variant="contained"
-              type="submit"
-              className="btn-Field"
-              style={{ backgroundColor: "#FAFF00", color: "black" }}
-            >
-              Reclamar Recompensa
-            </Button>
-          </form>
+              <Button
+                variant="contained"
+                type="submit"
+                className="btn-Field"
+                style={{ backgroundColor: "#FAFF00", color: "black" }}
+              >
+                Reclamar Recompensa
+              </Button>
+            </form>
+          </div>
         </div>
       </section>
 
       <section className="section__main6">
-        <div className="main__carousel container">
+        <div
+          className="main__carousel container"
+          style={{ textAlign: "center" }}
+        >
           <div className="header__main__btn">
             <a href="" className="btn_header__main">
               Quiero Comprar <RiShareBoxLine className="btn__btn btn__three" />
             </a>
           </div>
+          <h1 className="livegood_h1">
+            Como funciona <span className="span__livegood">LiveGood</span> y sus
+            productos{" "}
+          </h1>
+          <div
+            className="Carousel"
+            style={{
+              width: "80%", // Cambia el ancho según tu diseño
+              height: "250px", // Cambia la altura según tu diseño
+              margin: "0 auto", // Centra el Carousel horizontalmente
+            }}
+          >
+            <div className="item20">
+              <Carousel className="carousel" dotPosition="bottom" autoplay>
+                <div>
+                  <h3 style={contentStyle}>
+                    <img
+                      src="../../../Public/image13.png"
+                      alt=""
+                      className="img__Section__there"
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 style={contentStyle} className="h3-carousel">
+                    <img
+                      src="../../../Public/image12.png"
+                      alt=""
+                      className="img__Section__there"
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 style={contentStyle}>
+                    <img
+                      src="../../../Public/image11.png"
+                      alt=""
+                      className="img__Section__there"
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 style={contentStyle}>
+                    <img
+                      src="../../../Public/image10.png"
+                      alt=""
+                      className="img__Section__there"
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 style={contentStyle}>
+                    <img
+                      src="../../../Public/image9.png"
+                      alt=""
+                      className="img__Section__there"
+                    />
+                  </h3>
+                </div>
+                <div>
+                  <h3 style={contentStyle}>
+                    <img
+                      src="../../../Public/image8.png"
+                      alt=""
+                      className="img__Section__there"
+                    />
+                  </h3>
+                </div>
+              </Carousel>
+            </div>
+          </div>
+          <div className="main6__descriptions">
+            <p className="main6__descripcion">
+              <h1 className="h1__footer">
+                <span className="span__livegood footer">
+                  {" "}
+                  Nutrición Avanzada, Oportunidad Real
+                </span>{" "}
+                En LiveGood, conectamos bienestar y progreso. Nuestros
+                suplementos premium y planes de compensación te empoderan para
+                alcanzar una vida plena y exitosa.
+              </h1>
+              <h1 className="h1__footer">
+                <span className="span__livegood footer">
+                  Calidad a tu Alcance
+                </span>{" "}
+                Vive saludable con nuestros productos orgánicos a precios sin
+                competencia. Con LiveGood, la excelencia es accesible para
+                todos, cada día.
+              </h1>
+              <h1 className="h1__footer">
+                <span className="span__livegood footer">
+                  Crecimiento Compartido
+                </span>
+                Únete y prospera en nuestro modelo de negocio transparente y
+                colaborativo. Con LiveGood, tu esfuerzo se traduce en resultados
+                tangibles y satisfacción duradera.
+              </h1>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section__main7">
+        <div className="main__IA container">
+          <h1 className="main__ia__title">
+            Potencia Tu Red LiveGood con{" "}
+            <span className="span__ia">Inteligencia Artificial Avanzada</span>
+          </h1>
+          <BasicAccordion />
+          <StepsApp />
         </div>
       </section>
     </main>
