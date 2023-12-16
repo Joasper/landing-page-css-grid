@@ -19,22 +19,11 @@ export const App = () => {
     <div className="">
       <div>
         {isLoading ? (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100vh",
-            }}
-          >
-            <CircularProgress />
-          </div>
+          <CircularProgress />
         ) : (
           // Contenido de tu página una vez que isLoading sea falso
-          <div>
-            <YourComponent />
-            <Inicio />
-          </div>
+
+          <Inicio />
         )}
       </div>
     </div>

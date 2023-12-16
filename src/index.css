@@ -36,6 +36,12 @@
 body {
   color: white;
   font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(
+    to bottom,
+    #000000 30%,
+    #2c3e50 70%,
+    #19232d 100%
+  );
 }
 
 .main {
@@ -52,11 +58,15 @@ body {
     "main5"
     "main6"
     "main7"
-    "main8";
+    "main8"
+    "main9"
+    "main10"
+    "main11";
 }
 
 .main__hero {
   background-color: var(--App-Color);
+  background-image: linear-gradient(to bottom, #000000de 30%, #0000000b 80%);
 }
 
 .container {
@@ -98,17 +108,48 @@ body {
   display: flex;
   justify-content: end;
 }
-
 .btn__Primary {
   display: flex;
   justify-content: end;
   margin-bottom: 10px;
-  width: 118px;
-  border: 1px solid var(--Color-Border-Btn);
+  font-size: 13px;
+  width: 141px;
   padding: 6px 16px;
   border-radius: 30px;
   font-weight: 400;
-  box-shadow: 0 0 1px;
+  position: relative;
+  overflow: hidden; /* Añadimos overflow para ocultar el borde animado */
+}
+
+.btn__Primary::before {
+  content: "";
+  position: absolute;
+  top: -1px; /* Ajustamos la posición para que se vea el borde estático */
+  left: -1px; /* Ajustamos la posición para que se vea el borde estático */
+  right: -1px; /* Ajustamos la posición para que se vea el borde estático */
+  bottom: -1px; /* Ajustamos la posición para que se vea el borde estático */
+  border: 1px solid #3498db; /* Color del borde inicial */
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+  animation: animateBorder 4s linear infinite; /* Duración, tipo de animación y repetición */
+}
+
+@keyframes animateBorder {
+  0% {
+    border: 3px solid #3498db; /* Primer color del borde */
+  }
+  25% {
+    border: 3px solid #e74c3c; /* Segundo color del borde */
+  }
+  50% {
+    border: 3px solid #27ae60; /* Tercer color del borde */
+  }
+  75% {
+    border: 3px solid #f39c12; /* Cuarto color del borde */
+  }
+  100% {
+    border: 3px solid #3498db; /* Volver al primer color del borde */
+  }
 }
 
 .btns-bottom {
@@ -121,7 +162,6 @@ body {
 
 .main__main2 {
   grid-area: main2;
-  background-color: var(--App-Color);
 }
 
 .main__title {
@@ -146,8 +186,6 @@ body {
 
 .main__main3 {
   grid-area: main3;
-
-  background-color: var(--App-Color);
 }
 
 .main__video {
@@ -334,6 +372,14 @@ body {
   padding-bottom: 20px;
 }
 
+.livegood {
+  height: 400px !important;
+}
+
+.main__video {
+  margin-bottom: 100px;
+  height: 400px;
+}
 .carousel {
   width: 300px;
   margin-top: 10px;
@@ -396,7 +442,7 @@ h3 {
   border-left: 20px solid transparent;
   border-top: 25px solid #86fbe5;
   position: relative;
-  left: 150px;
+  left: 140px;
   top: 45px;
 }
 
@@ -489,19 +535,19 @@ h3 {
 
 .img-card4 {
   position: relative;
-  left: 46px;
+  left: 36px;
 }
 
 .Section__Profecion4 {
   position: relative;
-  left: 10;
+  left: 10px;
   font-size: 12px;
 }
 
 .Section__Name4 {
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 14px;
-  font-size: 20px;
+  font-size: 17px;
   position: relative;
   left: 4px;
 }
@@ -547,6 +593,159 @@ h3 {
   background-color: var(--App-Color);
 }
 
+.title__main8 {
+  text-align: center;
+  margin-bottom: 60px;
+  color: #86fae5;
+}
+
+.main__book {
+  grid-area: main9;
+}
+
+.contenedor-libros {
+  display: flex;
+  border-radius: 10px;
+}
+
+.libro-left {
+  background-color: #86fae5;
+  width: 10px;
+  height: 750px;
+}
+.libro-container {
+  background-color: #000913;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+}
+
+.title__footer__end {
+  text-align: center;
+}
+
+.diamond {
+  color: #ff7a00;
+  font-size: 23px;
+}
+
+.orange {
+  color: #86fae5;
+  font-size: 23px;
+}
+
+.parrafo__footer {
+  text-align: center;
+}
+
+.picture___footer {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.img__footer {
+  max-width: 200px;
+  margin: 0 auto;
+  position: relative;
+  left: 80px;
+}
+
+.bottom__footer {
+  text-decoration: none;
+  color: black !important;
+  background-color: #86fae5;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.section__main10 {
+  background-image: linear-gradient(to bottom, #0f2934e0 30%, #0000000b 100%);
+  grid-area: main10;
+}
+
+.loudingpage {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #0f2934e0 30%, #0000000b 100%);
+}
+
+.circular {
+  margin-top: 200px;
+  margin-left: 170px;
+}
+
+.btn-main10 {
+  display: block;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  padding: 25px 35px;
+  text-decoration: none;
+  border-radius: 20px;
+  border: 1px solid #86fae5;
+}
+
+.img__main10 {
+  margin: 0 auto;
+}
+
+.main10__content {
+  display: flex;
+
+  margin: 0 auto;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+li {
+  list-style: none;
+  color: white;
+  font-size: 13px;
+}
+
+.description-secuund {
+  position: relative;
+  left: 10px;
+  right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.combinacion {
+  display: flex;
+}
+
+.main11___derechos {
+  display: flex;
+  flex-direction: column;
+}
+
+.description-secuund {
+  position: relative;
+  left: 55px;
+}
+
+.BotIa {
+  position: relative;
+  left: 75px;
+}
+
+.Livegood-item {
+  position: relative;
+  left: 55px;
+}
+.louding {
+  background-color: var(--App-Color);
+  height: 100vh;
+  margin: 0 auto;
+  margin-top: 50px;
+}
 @media (min-width: 708px) {
   .container {
     width: 85%;
@@ -560,12 +759,31 @@ h3 {
   .img-logo {
     max-width: 700px;
   }
+
   .btn_primary_btn {
-    max-width: 100px;
+    width: 100%;
+    max-width: 40px;
   }
 
   .destok {
     display: block;
+    position: relative;
+  }
+
+  .btns-bottom {
+    display: flex;
+    width: 1267px;
+    position: relative;
+    left: 15px;
+    gap: 0px;
+  }
+
+  .header__btns {
+    position: relative;
+    right: 950px;
+    width: 400px;
+    font-size: 10px;
+    gap: 0px;
   }
   .celular {
     display: none;
@@ -573,19 +791,21 @@ h3 {
 
   .btn {
     margin-left: 20px;
-    font-size: 16px;
+    font-size: 19px;
     align-items: flex-end;
     font-size: 30px;
   }
 
   .btn__Secundary {
     margin-top: 10px;
-    font-size: 25px;
+    font-size: 35px;
+    width: 100%;
   }
 
   .btn__Primary {
-    width: 260px;
+    width: 160px;
     padding: 10px 10px;
+    width: 100px;
   }
 
   .hero-img {
@@ -797,6 +1017,10 @@ h3 {
 
   .main6__descriptions {
     margin-top: 300px;
+  }
+
+  .section__main11 {
+    grid-area: main11;
   }
 
   .h3-carousel {

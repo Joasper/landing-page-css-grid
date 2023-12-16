@@ -6,12 +6,22 @@ import Typography from "@mui/material/Typography";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
+import { GrFormNextLink } from "react-icons/gr";
+import { IoArrowBackOutline } from "react-icons/io5";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { Louding } from "../Components/Louding";
 
 export default function BasicAccordion() {
   // let expanded = true;
   const [expanded, setExpanded] = React.useState({});
   const [abrir, setabrir] = React.useState(false);
+  const [Propnt1, setPropnt1] = React.useState(true);
+  const [Pronpt2, setPronpt2] = React.useState(false);
+  const [Pronpt3, setPronpt3] = React.useState(false);
+  const [Pronpt4, setPronpt4] = React.useState(false);
+  const [Ia, setIa] = React.useState(false);
+  const [Loudingg, setLoudingg] = React.useState(true);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded({
@@ -35,19 +45,48 @@ export default function BasicAccordion() {
     }
   };
 
-  const cerrer = () => {
+  const atras = () => {
     setabrir(false);
+    setPropnt1(true);
   };
 
   const abrirr = () => {
     setabrir(true);
+    setPropnt1(false);
   };
+
+  const abrirpronpt3 = () => {
+    setabrir(false);
+    setPronpt2(true);
+  };
+
+  const abrirpronpt4 = () => {
+    setPronpt2(false);
+    setPronpt3(true);
+  };
+  const abrirpronpt5 = () => {
+    setPronpt3(false);
+    setPronpt4(true);
+  };
+
+  const GenerarRespuesta = () => {
+    setPronpt4(false);
+    setIa(true);
+  };
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoudingg(false);
+    }, 5000);
+
+    // Limpiamos el timer cuando el componente se desmonte
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="acordeon-box">
       <Accordion
-        expanded={expanded["panel1"]}
-        onChange={handleChange("panel1")}
+        expanded={Propnt1}
+        //   onChange={handleChange("panel1")}
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
         className="detalles"
       >
@@ -58,7 +97,7 @@ export default function BasicAccordion() {
         >
           <div
             className="flecha"
-            style={{ display: expanded["panel1"] ? "block" : "none" }}
+            style={{ display: Propnt1 ? "block" : "none" }}
           ></div>
           <Typography className="title">Prompt 1</Typography>
         </AccordionSummary>
@@ -90,12 +129,42 @@ export default function BasicAccordion() {
                 label="Experiencia y Habilidades"
               />
             </FormGroup>
+            <div
+              className=""
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                marginTop: "30px",
+              }}
+            >
+              {" "}
+              <Button
+                variant="contained"
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  backgroundColor: "#cef238",
+                  color: "black",
+                }}
+                endIcon={
+                  <GrFormNextLink
+                    style={{
+                      border: "1.5px solid black",
+                      borderRadius: "50px",
+                    }}
+                  />
+                }
+                onClick={abrirr}
+              >
+                Siguiente
+              </Button>
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
-        expanded={expanded["panel2"]}
-        onChange={handleChange("panel2")}
+        expanded={abrir}
+        // onChange={handleChange("panel2")}
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
         className="detalles"
       >
@@ -106,7 +175,7 @@ export default function BasicAccordion() {
         >
           <div
             className="flecha"
-            style={{ display: expanded["panel2"] ? "block" : "none" }}
+            style={{ display: abrir ? "block" : "none" }}
           ></div>
           <Typography>Prompt 2</Typography>
         </AccordionSummary>
@@ -143,12 +212,42 @@ export default function BasicAccordion() {
                 label="Preferencias de Mercado y Demográficas"
               />
             </FormGroup>
+            <div
+              className=""
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                marginTop: "30px",
+              }}
+            >
+              {" "}
+              <Button
+                variant="contained"
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  backgroundColor: "#cef238",
+                  color: "black",
+                }}
+                endIcon={
+                  <GrFormNextLink
+                    style={{
+                      border: "1.5px solid black",
+                      borderRadius: "50px",
+                    }}
+                  />
+                }
+                onClick={abrirpronpt3}
+              >
+                Siguiente
+              </Button>
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
-        expanded={expanded["panel3"]}
-        onChange={handleChange("panel3")}
+        expanded={Pronpt2}
+        //onChange={handleChange("panel3")}
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
         className="detalles"
       >
@@ -159,7 +258,7 @@ export default function BasicAccordion() {
         >
           <div
             className="flecha"
-            style={{ display: expanded["panel3"] ? "block" : "none" }}
+            style={{ display: Pronpt2 ? "block" : "none" }}
           ></div>
           <Typography>Prompt 3</Typography>
         </AccordionSummary>
@@ -195,12 +294,42 @@ export default function BasicAccordion() {
                 label="Estrategias de Comunicación Preferidas"
               />
             </FormGroup>
+            <div
+              className=""
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                marginTop: "30px",
+              }}
+            >
+              {" "}
+              <Button
+                variant="contained"
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  backgroundColor: "#cef238",
+                  color: "black",
+                }}
+                endIcon={
+                  <GrFormNextLink
+                    style={{
+                      border: "1.5px solid black",
+                      borderRadius: "50px",
+                    }}
+                  />
+                }
+                onClick={abrirpronpt4}
+              >
+                Siguiente
+              </Button>
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
-        expanded={expanded["panel4"]}
-        onChange={handleChange("panel4")}
+        expanded={Pronpt3}
+        // onChange={handleChange("panel4")}
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
         className="detalles"
       >
@@ -211,7 +340,7 @@ export default function BasicAccordion() {
         >
           <div
             className="flecha"
-            style={{ display: expanded["panel4"] ? "block" : "none" }}
+            style={{ display: Pronpt3 ? "block" : "none" }}
           ></div>
           <Typography> Prompt 4</Typography>
         </AccordionSummary>
@@ -247,12 +376,42 @@ export default function BasicAccordion() {
                 label="Análisis de Productos y Preferencias"
               />
             </FormGroup>
+            <div
+              className=""
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                marginTop: "30px",
+              }}
+            >
+              {" "}
+              <Button
+                variant="contained"
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  backgroundColor: "#cef238",
+                  color: "black",
+                }}
+                endIcon={
+                  <GrFormNextLink
+                    style={{
+                      border: "1.5px solid black",
+                      borderRadius: "50px",
+                    }}
+                  />
+                }
+                onClick={abrirpronpt5}
+              >
+                Siguiente
+              </Button>
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion
-        expanded={expanded["panel5"]}
-        onChange={handleChange("panel5")}
+        expanded={Pronpt4}
+        // onChange={handleChange("panel5")}
         style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
         className="detalles"
       >
@@ -263,7 +422,7 @@ export default function BasicAccordion() {
         >
           <div
             className="flecha"
-            style={{ display: expanded["panel5"] ? "block" : "none" }}
+            style={{ display: Pronpt4 ? "block" : "none" }}
           ></div>
           <Typography>Prompt 5</Typography>
         </AccordionSummary>
@@ -295,9 +454,59 @@ export default function BasicAccordion() {
                 label="Vitaminas y minerales"
               />
             </FormGroup>
+            <div
+              className=""
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                marginTop: "30px",
+              }}
+            >
+              {" "}
+              <Button
+                variant="contained"
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  backgroundColor: "#cef238",
+                  color: "black",
+                }}
+                onClick={GenerarRespuesta}
+              >
+                Generar Estrategia
+              </Button>
+            </div>
           </Typography>
         </AccordionDetails>
       </Accordion>
+
+      {Ia ? (
+        <Accordion
+          expanded={Ia}
+          // onChange={handleChange("panel5")}
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+          className="detalles"
+        >
+          <AccordionSummary
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+            style={{ backgroundColor: "#d7fd3c" }}
+          >
+            <div
+              className="flecha"
+              style={{ display: expanded["panel5"] ? "block" : "none" }}
+            ></div>
+            <Typography>Estrategia</Typography>
+          </AccordionSummary>
+          <AccordionDetails className="detalles" color="red">
+            <Typography color={"white"} style={{ paddingTop: "20px" }}>
+              <Louding />
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

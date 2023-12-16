@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://livegood-pay.network/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
