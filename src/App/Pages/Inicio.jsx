@@ -7,11 +7,18 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import StepsApp from "../../Components/Steps";
 import VerticalLinearStepper from "../../Components/StepsMui";
 import BasicAccordion from "../../Components/StepsAntd-";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import AcordeonPc from "../../Components/Steps";
 import Acordeonn from "../../Components/Acordeonn";
 import YourComponent from "../../Components/Circular";
 import CircularProgress from "@mui/material/CircularProgress";
+import { FaShoppingCart } from "react-icons/fa";
+
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+import "swiper/css";
 
 const contentStyle = {
   height: "200px",
@@ -21,6 +28,8 @@ const contentStyle = {
   background: "#1b2024",
 };
 
+import Tarjetas from "../../Components/Tarjetas";
+import { CrearOrden } from "../../helpers/Paypal";
 export const Inicio = () => {
   const [louding, setlouding] = useState(true);
 
@@ -38,11 +47,14 @@ export const Inicio = () => {
       {louding ? (
         <div className="loudingpage">
           <CircularProgress
+            thickness={6}
+            size={100}
             className="circular"
             style={{
               color: "#03c22d",
               marginTop: "280px",
-              strokeWidth: 100,
+
+              strokeWidth: 6,
             }}
           />
         </div>
@@ -67,10 +79,10 @@ export const Inicio = () => {
                   </a>
                 </div>
                 <div className="btns-bottom">
-                  <a href="" className="btn btn__Secundary">
+                  <a href="#registro" className="btn btn__Secundary ">
                     Registrate y Gana $1USD
                   </a>
-                  <a href="" className="btn btn__Secundary">
+                  <a href="#ia" className="btn btn__Secundary principal">
                     Impulsa tu Red con IA
                   </a>
                   <a href="" className="btn btn__Primary destok">
@@ -128,7 +140,7 @@ export const Inicio = () => {
                             className="img-card imagen"
                           />
                           <h6 class="Section__Profecion">CEO</h6>
-                          <p class="Section__Name">Ben Glinsky </p>
+                          <p class="Section__Name name1">Ben Glinsky </p>
                         </picture>
                       </div>
                     </div>
@@ -200,7 +212,7 @@ export const Inicio = () => {
             </div>
           </section>
 
-          <section className="section__main5">
+          <section className="section__main5" id="registro">
             <div className="main__form container">
               <h3 className="main5__title">
                 Pre-regístrate y Gana{" "}
@@ -228,7 +240,11 @@ export const Inicio = () => {
                       style: { color: "white" },
                       endAdornment: (
                         <InputAdornment position="end">
-                          <CiWallet color="white" fontSize={"20px"} />
+                          <CiWallet
+                            color="white"
+                            fontSize={"20px"}
+                            className="cartera"
+                          />
                         </InputAdornment>
                       ), // Cambiar el color del texto
                     }}
@@ -400,7 +416,7 @@ export const Inicio = () => {
                   <h1 className="h1__footer">
                     <span className="span__livegood footer">
                       Crecimiento Compartido
-                    </span>
+                    </span>{" "}
                     Únete y prospera en nuestro modelo de negocio transparente y
                     colaborativo. Con LiveGood, tu esfuerzo se traduce en
                     resultados tangibles y satisfacción duradera.
@@ -410,7 +426,7 @@ export const Inicio = () => {
             </div>
           </section>
 
-          <section className="section__main7">
+          <section className="section__main7" id="ia">
             <div className="main__IA container">
               <h1 className="main__ia__title">
                 Potencia Tu Red LiveGood con{" "}
@@ -418,12 +434,16 @@ export const Inicio = () => {
                   Inteligencia Artificial Avanzada
                 </span>
               </h1>
+              <p className="parrafoia">
+                Completa los Prompt y Genera Una Estrategia Con IA Para Ganar
+                Con LiveGood en segundos
+              </p>
               <BasicAccordion />
               <StepsApp />
             </div>
           </section>
 
-          <section className="section__main8">
+          <section className="section__main8 privado">
             <div className="main__footerPage container ontainer-fluid d-flex justify-content-center align-items-center">
               <div
                 id="carouselExampleInterval"
@@ -432,71 +452,109 @@ export const Inicio = () => {
               >
                 <h2 className="title__main8">RESEÑAS DE MIEMBROS</h2>
                 <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="20000">
-                    <div className="card__footer__app">
-                      <div className="card__icon">
-                        <img src="..//Public/comillas.png" alt="" srcset="" />
-                      </div>
-                      <div className="border__card__app">
-                        <div className="img__card">
-                          <img src="../../Public/live.png" alt="" srcset="" />
+                  <div class="carousel-item active">
+                    <div className="d-flex app">
+                      <div className="card__footer__app">
+                        <div className="card__icon">
+                          <img src="..//Public/comillas.png" alt="" srcset="" />
                         </div>
-                        <div className="Description__card">
-                          <p className="descripcion">
-                            ¡La herramienta de IA de LiveGood cambio el juego!
-                            En minutos, elaboró una estrategia personalizada que
-                            se alinea perfectamente con mis metas. Ahora tengo
-                            un plan claro y acciones definidas que resuenan con
-                            mi estilo de vida y objetivos de negocio. Además, el
-                            bono de pre-registro fue instantáneo. ¡Esto es
-                            innovación de verdad!
-                          </p>
+                        <div className="border__card__app">
+                          <div className="img__card">
+                            <img src="../../Public/live.png" alt="" srcset="" />
+                          </div>
+                          <div className="Description__card">
+                            <p className="descripcion">
+                              ¡La herramienta de IA de LiveGood cambio el juego!
+                              En minutos, elaboró una estrategia personalizada
+                              que se alinea perfectamente con mis metas. Ahora
+                              tengo un plan claro y acciones definidas que
+                              resuenan con mi estilo de vida y objetivos de
+                              negocio. Además, el bono de pre-registro fue
+                              instantáneo. ¡Esto es innovación de verdad!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card__footer__app">
+                        <div className="card__icon">
+                          <img src="..//Public/comillas.png" alt="" srcset="" />
+                        </div>
+                        <div className="border__card__app">
+                          <div className="img__card">
+                            <img
+                              src="../../Public/live2.png"
+                              alt=""
+                              srcset=""
+                              className="img-card"
+                            />
+                          </div>
+                          <div className="Description__card">
+                            <p className="descripcion">
+                              ¡La herramienta de IA de LiveGood cambio el juego!
+                              En minutos, elaboró una estrategia personalizada
+                              que se alinea perfectamente con mis metas. Ahora
+                              tengo un plan claro y acciones definidas que
+                              resuenan con mi estilo de vida y objetivos de
+                              negocio. Además, el bono de pre-registro fue
+                              instantáneo. ¡Esto es innovación de verdad!
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="carousel-item" data-bs-interval="2000">
-                    <div className="card__footer__app">
-                      <div className="card__icon">
-                        <img src="../../Public/comillas.png" alt="" srcset="" />
-                      </div>
-                      <div className="border__card__app">
-                        <div className="img__card">
-                          <img src="../../Public/live.png" alt="" srcset="" />
+                  <div class="carousel-item">
+                    <div className="d-flex app">
+                      <div className="card__footer__app">
+                        <div className="card__icon">
+                          <img src="..//Public/comillas.png" alt="" srcset="" />
                         </div>
-                        <div className="Description__card">
-                          <p className="descripcion">
-                            ¡La herramienta de IA de LiveGood cambio el juego!
-                            En minutos, elaboró una estrategia personalizada que
-                            se alinea perfectamente con mis metas. Ahora tengo
-                            un plan claro y acciones definidas que resuenan con
-                            mi estilo de vida y objetivos de negocio. Además, el
-                            bono de pre-registro fue instantáneo. ¡Esto es
-                            innovación de verdad!
-                          </p>
+                        <div className="border__card__app">
+                          <div className="img__card">
+                            <img
+                              src="../../Public/live3.png"
+                              alt=""
+                              srcset=""
+                              className="img-card"
+                            />
+                          </div>
+                          <div className="Description__card">
+                            <p className="descripcion">
+                              ¡La herramienta de IA de LiveGood cambio el juego!
+                              En minutos, elaboró una estrategia personalizada
+                              que se alinea perfectamente con mis metas. Ahora
+                              tengo un plan claro y acciones definidas que
+                              resuenan con mi estilo de vida y objetivos de
+                              negocio. Además, el bono de pre-registro fue
+                              instantáneo. ¡Esto es innovación de verdad!
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="2000">
-                    <div className="card__footer__app">
-                      <div className="card__icon">
-                        <img src="../../Public/comillas.png" alt="" srcset="" />
-                      </div>
-                      <div className="border__card__app">
-                        <div className="img__card">
-                          <img src="../../Public/live.png" alt="" srcset="" />
+                      <div className="card__footer__app">
+                        <div className="card__icon">
+                          <img src="..//Public/comillas.png" alt="" srcset="" />
                         </div>
-                        <div className="Description__card">
-                          <p className="descripcion">
-                            ¡La herramienta de IA de LiveGood cambio el juego!
-                            En minutos, elaboró una estrategia personalizada que
-                            se alinea perfectamente con mis metas. Ahora tengo
-                            un plan claro y acciones definidas que resuenan con
-                            mi estilo de vida y objetivos de negocio. Además, el
-                            bono de pre-registro fue instantáneo. ¡Esto es
-                            innovación de verdad!
-                          </p>
+                        <div className="border__card__app">
+                          <div className="img__card">
+                            <img
+                              src="../../Public/live4.png"
+                              alt=""
+                              srcset=""
+                              className="img-card"
+                            />
+                          </div>
+                          <div className="Description__card">
+                            <p className="descripcion">
+                              ¡La herramienta de IA de LiveGood cambio el juego!
+                              En minutos, elaboró una estrategia personalizada
+                              que se alinea perfectamente con mis metas. Ahora
+                              tengo un plan claro y acciones definidas que
+                              resuenan con mi estilo de vida y objetivos de
+                              negocio. Además, el bono de pre-registro fue
+                              instantáneo. ¡Esto es innovación de verdad!
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -546,6 +604,145 @@ export const Inicio = () => {
               </div>
             </div>
           </section>
+          <section className="section__main8 publico">
+            <div className="main__footerPage container container-fluid d-flex justify-content-center align-items-center">
+              <div
+                id="carouselExampleControls"
+                class="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <h2 className="title__main8">RESEÑAS DE MIEMBROS</h2>
+                <div
+                  id="carouselExampleControls"
+                  class="carousel slide"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div className="card__footer__app">
+                        <div className="card__icon">
+                          <img src="../Public/comillas.png" alt="" srcset="" />
+                        </div>
+                        <div className="border__card__app">
+                          <div className="img__card">
+                            <img src="../../Public/live.png" alt="" srcset="" />
+                          </div>
+                          <div className="Description__card">
+                            <p className="descripcion">
+                              ¡La herramienta de IA de LiveGood cambio el juego!
+                              En minutos, elaboró una estrategia personalizada
+                              que se alinea perfectamente con mis metas. Ahora
+                              tengo un plan claro y acciones definidas que
+                              resuenan con mi estilo de vida y objetivos de
+                              negocio. Además, el bono de pre-registro fue
+                              instantáneo. ¡Esto es innovación de verdad!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div className="card__footer__app">
+                        <div className="card__icon">
+                          <img src="../Public/comillas.png" alt="" srcset="" />
+                        </div>
+                        <div className="border__card__app">
+                          <div className="img__card">
+                            <img
+                              src="../../Public/live2.png"
+                              alt=""
+                              srcset=""
+                              className="img-card"
+                            />
+                          </div>
+                          <div className="Description__card">
+                            <p className="descripcion">
+                              ¡La herramienta de IA de LiveGood cambio el juego!
+                              En minutos, elaboró una estrategia personalizada
+                              que se alinea perfectamente con mis metas. Ahora
+                              tengo un plan claro y acciones definidas que
+                              resuenan con mi estilo de vida y objetivos de
+                              negocio. Además, el bono de pre-registro fue
+                              instantáneo. ¡Esto es innovación de verdad!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div className="card__footer__app">
+                        <div className="card__icon">
+                          <img src="../Public/comillas.png" alt="" srcset="" />
+                        </div>
+                        <div className="border__card__app">
+                          <div className="img__card">
+                            <img
+                              src="../../Public/live3.png"
+                              alt=""
+                              srcset=""
+                              className="img-card"
+                            />
+                          </div>
+                          <div className="Description__card">
+                            <p className="descripcion">
+                              ¡La herramienta de IA de LiveGood cambio el juego!
+                              En minutos, elaboró una estrategia personalizada
+                              que se alinea perfectamente con mis metas. Ahora
+                              tengo un plan claro y acciones definidas que
+                              resuenan con mi estilo de vida y objetivos de
+                              negocio. Además, el bono de pre-registro fue
+                              instantáneo. ¡Esto es innovación de verdad!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev"
+                    style={{
+                      marginLeft: "-45px",
+                    }}
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next"
+                    style={{
+                      marginRight: "-45px",
+                    }}
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <div className="header__main__btn">
+                  <a
+                    href=""
+                    className="btn_header__main"
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    Quiero ser miembro
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <section className="section__main9">
             <div className="main__book container">
@@ -556,31 +753,35 @@ export const Inicio = () => {
                     Maestría en Network Marketing{" "}
                   </h2>
                   <h2 className="title__footer__end orange">Tu Kit de Éxito</h2>
-                  <p className="parrafo__footer">
-                    Adquiere ahora tu acceso completo a la Academia LiveGood y
-                    nuestro extenso manual de 80 páginas por un único pago de
-                    $29.55. Domina las técnicas de cierre, absorbe conocimientos
-                    de marketing de alto nivel y empodera tu estrategia de
-                    promoción. Todo lo que necesitas para prosperar en LiveGood
-                    en un paquete integral.
-                  </p>
-                  <picture className="picture___footer">
-                    <img
-                      src="../../Public/image14.png"
-                      alt=""
-                      srcset=""
-                      className="img__footer"
-                    />
-                  </picture>
+                  <div className="book">
+                    {" "}
+                    <p className="parrafo__footer">
+                      Adquiere ahora tu acceso completo a la Academia LiveGood y
+                      nuestro extenso manual de 80 páginas por un único pago de
+                      $29.55. Domina las técnicas de cierre, absorbe
+                      conocimientos de marketing de alto nivel y empodera tu
+                      estrategia de promoción. Todo lo que necesitas para
+                      prosperar en LiveGood en un paquete integral.
+                    </p>
+                    <picture className="picture___footer">
+                      <img
+                        src="../../Public/image14.png"
+                        alt=""
+                        srcset=""
+                        className="img__footer"
+                      />
+                    </picture>
+                  </div>
+
                   <div
-                    className=""
+                    className="botondel final"
                     style={{
                       textAlign: "center",
                       marginTop: "50px",
                     }}
                   >
-                    <a href="" className="bottom__footer">
-                      Compra Ahora $29.95 USD
+                    <a href="" className="bottom__footer botonfinally">
+                      Compra Ahora $29.95 USD <FaShoppingCart />
                     </a>
                   </div>
                 </div>
@@ -599,11 +800,12 @@ export const Inicio = () => {
                     src="../../Public/LIVEGOODIALOGO2.png"
                     alt=""
                     srcset=""
+                    className="fotomain10"
                   />
                 </picture>
               </div>
             </div>
-            <section className="section__main11">
+            <section className="section__main11 celularderechos">
               <div className="main11___derechos container">
                 <div className="combinacion">
                   <div className="section11__content">
@@ -654,8 +856,60 @@ export const Inicio = () => {
                 </div>
               </div>
             </section>
+            <section className="section__main11  computadoraderechos">
+              <div className="main11___derechos container">
+                <div className="combinacion combinacion2">
+                  <div className="section11__content">
+                    <h6 className="descripcionn BotIa">Bot IA</h6>
+                    <ul>
+                      <li>
+                        <a href="">Comprar Bot WhatsApp</a>
+                      </li>
+                      <li>
+                        <a href="">Alquilar Bot WhatsApp</a>
+                      </li>
+                      <li>
+                        <a href="">Reseller Bot WhatsApp</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="section11__content">
+                    <h6 className="descripcionn description-secuund">
+                      IA LiveGood
+                    </h6>
+                    <ul>
+                      <li>
+                        <a href="">BOT LiveGood</a>
+                      </li>
+                      <li>
+                        <a href="">Generar Estrategia IA</a>
+                      </li>
+                      <li>
+                        <a href="">Reseller Bot WhatsApp</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="section11__content">
+                    <h6 className="descripcionn Livegood-item">LiveGood</h6>
+                    <ul>
+                      <li>
+                        <a href="" className="adeli">
+                          Quiero Inscribirme
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">Quiero Comprar</a>
+                      </li>
+                      <li>
+                        <a href="">Hacer Pre-registro</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
           </section>
-          <p style={{ textAlign: "center" }}>
+          <p style={{ textAlign: "center" }} className="derechosautor">
             Todos Los Derechos Reservados 2024
           </p>
         </div>

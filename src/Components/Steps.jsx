@@ -6,16 +6,19 @@ import {
   FormControlLabel,
   FormGroup,
 } from "@mui/material";
+import { ChatGPT } from "./ChatGPT";
 
 const steps = [
   {
     title: "Prompt 1 ",
     content: (
-      <div style={{ padding: "10px" }}>
+      <div style={{ padding: "10px 10px 30px 20px" }}>
         <FormGroup>
           <h1
             style={{
               marginTop: "30px",
+              fontSize: "35px",
+              marginBottom: "39px",
             }}
           >
             ¿Cuáles son tus objetivos con LiveGood?
@@ -48,11 +51,13 @@ const steps = [
   {
     title: "Prompt 2",
     content: (
-      <div style={{ padding: "10px" }}>
+      <div style={{ padding: "10px 10px 30px 20px" }}>
         <FormGroup>
           <h1
             style={{
               marginTop: "30px",
+              fontSize: "35px",
+              marginBottom: "39px",
             }}
           >
             Marca tu nivel de experiencia y habilidades en marketing multinivel:
@@ -87,13 +92,15 @@ const steps = [
     ),
   },
   {
-    title: "Paso 3",
+    title: "Prompt 3",
     content: (
-      <div style={{ padding: "10px" }}>
+      <div style={{ padding: "10px 10px 30px 20px" }}>
         <FormGroup>
           <h1
             style={{
               marginTop: "30px",
+              fontSize: "35px",
+              marginBottom: "39px",
             }}
           >
             Selecciona tus mercados y demografías objetivo
@@ -130,17 +137,19 @@ const steps = [
   {
     title: "Prompt 4",
     content: (
-      <div style={{ padding: "10px" }}>
+      <div style={{ padding: "10px 10px 30px 20px" }}>
         <FormGroup>
           <h1
             style={{
               marginTop: "30px",
+              fontSize: "35px",
+              marginBottom: "39px",
             }}
           >
             ¿Cuáles son tus métodos preferidos de comunicación y promoción?
           </h1>
           <FormControlLabel
-            control={<Checkbox style={{ color: "white" }} />}
+            control={<Checkbox style={{ color: "white", fontSize: "10px" }} />}
             label="Redes sociales"
           />
           <FormControlLabel
@@ -169,13 +178,15 @@ const steps = [
     ),
   },
   {
-    title: "Paso ",
+    title: "Prompt 5 ",
     content: (
-      <div style={{ padding: "10px" }}>
+      <div style={{ padding: "10px 10px 30px 20px" }}>
         <FormGroup>
           <h1
             style={{
               marginTop: "30px",
+              fontSize: "35px",
+              marginBottom: "39px",
             }}
           >
             Elige los productos de LiveGood que te interesan para promover
@@ -214,12 +225,11 @@ const steps = [
       >
         <FormGroup>
           <CircularProgress
+            thickness={5}
             style={{
               color: "#64a72d",
-              position: "relative",
-              left: "780px",
-              top: "60px",
             }}
+            className="circularsptps"
           />
 
           <h2>Generando estrategia...</h2>
@@ -254,7 +264,12 @@ const StepsApp = () => {
   };
   return (
     <div className="stpes">
-      <Steps current={current} items={items} direction="horizontal" />
+      <Steps
+        current={current}
+        items={items}
+        direction="horizontal"
+        size="large"
+      />
       <div style={contentStyle}>{steps[current].content}</div>
       <div
         style={{
@@ -262,26 +277,27 @@ const StepsApp = () => {
         }}
       >
         {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
+          <Button
+            type="primary"
+            onClick={() => next()}
+            className="btn-next-stes"
+            style={{
+              fontSize: "small",
+            }}
+          >
             Siguiente
           </Button>
         )}
-        {current === steps.length - 1 && (
+        {current === steps.length - 0 && (
           <Button
             type="primary"
             onClick={() => message.success("Processing complete!")}
+            className="btn-next-stes"
+            style={{
+              fontSize: "small",
+            }}
           >
             Completar
-          </Button>
-        )}
-        {current > 0 && (
-          <Button
-            style={{
-              margin: "0 8px",
-            }}
-            onClick={() => prev()}
-          >
-            Atras
           </Button>
         )}
       </div>

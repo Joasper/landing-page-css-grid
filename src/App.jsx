@@ -2,9 +2,12 @@ import { Inicio } from "./App/Pages/Inicio";
 import YourComponent from "./Components/Circular";
 import React, { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
+import { CrearOrden } from "./helpers/Paypal";
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+ const Paypal =  CrearOrden()
+ console.log(Paypal)
 
   useEffect(() => {
     // Simulación de carga

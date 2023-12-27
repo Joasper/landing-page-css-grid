@@ -1,8 +1,10 @@
 import { CircularProgress } from "@mui/material";
 import React, { useState } from "react";
+import { ChatGPT } from "./ChatGPT";
 
 export const Louding = () => {
   const [Louding, setLouding] = useState(true);
+
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setLouding(false);
@@ -30,7 +32,10 @@ export const Louding = () => {
           </div>
         </div>
       ) : (
-        <h5>Recomendaciones de la IA...</h5>
+        <>
+          <h5>Recomendaciones de la IA...</h5>
+          <ChatGPT />
+        </>
       )}
     </div>
   );
