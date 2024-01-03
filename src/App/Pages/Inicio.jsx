@@ -30,8 +30,77 @@ const contentStyle = {
 
 import Tarjetas from "../../Components/Tarjetas";
 import { CrearOrden } from "../../helpers/Paypal";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useForm } from "../Hooks/useForm";
+import { useSystemRegistro } from "../Hooks/useSystemRegistro";
+import Swal from "sweetalert2";
+const init = {
+  Billetera: "",
+  Nombre: "",
+  Apellido: "",
+  Pais: "",
+  Telefono: "",
+};
 export const Inicio = () => {
   const [louding, setlouding] = useState(true);
+  const {
+    formState,
+    Billetera,
+    onInputChange,
+    Nombre,
+    Apellido,
+    Pais,
+    Telefono,
+  } = useForm(init);
+
+  const { AddRegister } = useSystemRegistro();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const navigate = useNavigate();
+  const paramValue = searchParams.get("token");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (Billetera.length === 0 || Billetera === undefined) {
+      return Swal.fire({
+        title: "Error",
+        text: "La billetera o correo es obligatorio",
+        icon: "error",
+      });
+    }
+    if (Nombre.length === 0 || Nombre === undefined) {
+      return Swal.fire({
+        title: "Error",
+        text: "El Nombre obligatorio",
+        icon: "error",
+      });
+    }
+    if (Apellido.length === 0 || Apellido === undefined) {
+      return Swal.fire({
+        title: "Error",
+        text: "El Apellido obligatorio",
+        icon: "error",
+      });
+    }
+    if (Telefono.length === 0 || Telefono === undefined) {
+      return Swal.fire({
+        title: "Error",
+        text: "El Telefono obligatorio",
+        icon: "error",
+      });
+    }
+    if (Pais.length === 0 || Pais === undefined) {
+      return Swal.fire({
+        title: "Error",
+        text: "El Pais obligatorio",
+        icon: "error",
+      });
+    }
+
+    console.log(formState);
+    AddRegister(formState);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,17 +115,7 @@ export const Inicio = () => {
     <main className="main">
       {louding ? (
         <div className="loudingpage">
-          <CircularProgress
-            thickness={6}
-            size={100}
-            className="circular"
-            style={{
-              color: "#03c22d",
-              marginTop: "280px",
-
-              strokeWidth: 6,
-            }}
-          />
+          <div class="loader"></div>{" "}
         </div>
       ) : (
         <div className="">
@@ -231,11 +290,14 @@ export const Inicio = () => {
                 nuestra misión, te daremos $1.00 USD Sí, así de sencillo.
               </p>
               <div className="formbox">
-                <form className="form">
+                <form className="form" onSubmit={onSubmit}>
                   <TextField
                     className="Input"
                     variant="outlined"
                     placeholder="Ingresa Paypal o Monedero BTC"
+                    name="Billetera"
+                    value={Billetera}
+                    onChange={onInputChange}
                     InputProps={{
                       style: { color: "white" },
                       endAdornment: (
@@ -257,6 +319,9 @@ export const Inicio = () => {
                       className="Input both"
                       variant="outlined"
                       placeholder="Nombre"
+                      name="Nombre"
+                      value={Nombre}
+                      onChange={onInputChange}
                       InputProps={{
                         style: { color: "white" }, // Cambiar el color del texto
                       }}
@@ -268,6 +333,9 @@ export const Inicio = () => {
                       className="Input both"
                       variant="outlined"
                       placeholder="Apellido"
+                      name="Apellido"
+                      value={Apellido}
+                      onChange={onInputChange}
                       InputProps={{
                         style: { color: "white" }, // Cambiar el color del texto
                       }}
@@ -280,6 +348,9 @@ export const Inicio = () => {
                     className="Input"
                     variant="outlined"
                     placeholder="Telefono"
+                    name="Telefono"
+                    value={Telefono}
+                    onChange={onInputChange}
                     InputProps={{
                       style: { color: "white" }, // Cambiar el color del texto
                     }}
@@ -291,6 +362,9 @@ export const Inicio = () => {
                     className="Input"
                     variant="outlined"
                     placeholder="Pais y Direccion"
+                    name="Pais"
+                    value={Pais}
+                    onChange={onInputChange}
                     InputProps={{
                       style: { color: "white" }, // Cambiar el color del texto
                     }}
@@ -780,7 +854,12 @@ export const Inicio = () => {
                       marginTop: "50px",
                     }}
                   >
-                    <a href="" className="bottom__footer botonfinally">
+                    <a
+                      id="comprar"
+                      href="#comprar"
+                      className="bottom__footer botonfinally"
+                      onClick={CrearOrden}
+                    >
                       Compra Ahora $29.95 USD <FaShoppingCart />
                     </a>
                   </div>

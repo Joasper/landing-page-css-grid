@@ -1,17 +1,36 @@
 import { CircularProgress } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChatGPT } from "./ChatGPT";
+import { generateTextFromFitnessContext } from "../helpers/ChatGPTtest";
+import { useSelector } from "react-redux";
 
 export const Louding = () => {
   const [Louding, setLouding] = useState(true);
+  const { Preguntas } = useSelector((state) => state.prompt);
+  const [strategy, setStrategy] = useState("");
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setLouding(false);
-    }, 5000);
+  useEffect(() => {
+    // Simulación de la llamada a la función ChatGPT
+    const fetchData = async () => {
+      try {
+        // Llama a la función que interactúa con la API de OpenAI para generar el texto
+        const userResponses = [
+          // Aquí podrías tener las respuestas del usuario
+        ];
 
-    // Limpiamos el timer cuando el componente se desmonte
-    return () => clearTimeout(timer);
+        // Simula una demora para mostrar el estado de carga
+        setTimeout(async () => {
+          const generatedText = await generateTextFromFitnessContext(Preguntas);
+          setStrategy(generatedText); // Actualiza el estado con el texto generado
+          setLouding(false); // Cambia el estado de carga a false cuando la operación finaliza
+        }, 3000); // Simula una demora de 3 segundos (ajusta este valor según sea necesario)
+      } catch (error) {
+        console.error(error);
+        setLouding(false); // En caso de error, también cambia el estado de carga a false
+      }
+    };
+
+    fetchData(); // Llama a la función al montar el componente
   }, []);
   return (
     <div>
@@ -33,8 +52,7 @@ export const Louding = () => {
         </div>
       ) : (
         <>
-          <h5>Recomendaciones de la IA...</h5>
-          <ChatGPT />
+          <p>{strategy}</p> {/* Muestra el texto generado por la IA */}
         </>
       )}
     </div>

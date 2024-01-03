@@ -3,11 +3,12 @@ import YourComponent from "./Components/Circular";
 import React, { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import { CrearOrden } from "./helpers/Paypal";
+import { Thanks } from "./App/Pages/Thanks";
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
- const Paypal =  CrearOrden()
- console.log(Paypal)
+  const Paypal = CrearOrden();
+  console.log(Paypal);
 
   useEffect(() => {
     // Simulación de carga
@@ -26,7 +27,10 @@ export const App = () => {
         ) : (
           // Contenido de tu página una vez que isLoading sea falso
 
-          <Inicio />
+          <>
+            <Inicio />
+            <Thanks />
+          </>
         )}
       </div>
     </div>

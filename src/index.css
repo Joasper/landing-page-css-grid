@@ -490,7 +490,7 @@ h3 {
   display: none;
 }
 .img-card {
-  width: 50px;
+  width: 60px !important;
 }
 
 .Section__Profecion {
@@ -672,7 +672,8 @@ a:hover {
   max-width: 200px;
   margin: 0 auto;
   position: relative;
-  left: 80px;
+  left: 0px !important;
+  display: flex !important;
 }
 
 .bottom__footer {
@@ -692,11 +693,18 @@ a:hover {
 
 .loudingpage {
   height: 100vh;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh;
   background-image: linear-gradient(to bottom, #0f2934e0 30%, #0000000b 100%);
 }
 
 .circular {
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-main10 {
@@ -771,6 +779,24 @@ a {
   text-align: center;
 }
 
+.loader {
+  border: 6px solid #03c22d;
+  border-top: 6px solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animación de rotación */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .Livegood-item {
   position: relative;
   left: 55px;
@@ -1195,6 +1221,7 @@ a {
 
     width: 230px;
     padding-right: 50px;
+    left: 80px !important;
   }
 
   .libro-left {

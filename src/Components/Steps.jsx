@@ -232,7 +232,7 @@ const steps = [
             className="circularsptps"
           />
 
-          <h2>Generando estrategia...</h2>
+          <h2>Generando estrategia....</h2>
         </FormGroup>
       </div>
     ),

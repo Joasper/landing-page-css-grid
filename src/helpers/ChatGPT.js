@@ -1,6 +1,3 @@
-import React from "react";
-import axios from "axios";
-
 export const ChatGPT = async () => {
   const APIKEY = "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";
 
@@ -26,5 +23,4 @@ export const ChatGPT = async () => {
     .catch((error) => {
       console.error(error);
     });
-  return <></>;
 };
