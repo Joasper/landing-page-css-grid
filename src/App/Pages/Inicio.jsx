@@ -35,6 +35,7 @@ import axios from "axios";
 import { useForm } from "../Hooks/useForm";
 import { useSystemRegistro } from "../Hooks/useSystemRegistro";
 import Swal from "sweetalert2";
+import { CryptoPay } from "../../helpers/CryptoPay";
 const init = {
   Billetera: "",
   Nombre: "",
@@ -133,7 +134,12 @@ export const Inicio = () => {
 
               <div className="header__btns">
                 <div className="btn_primary_btn">
-                  <a href="" className="btn btn__Primary celular ">
+                  <a
+                    id="PagoCrypto"
+                    href="#PagoCrypto"
+                    className="btn btn__Primary celular "
+                    onClick={CryptoPay}
+                  >
                     Pagar Membresia
                   </a>
                 </div>
@@ -144,7 +150,12 @@ export const Inicio = () => {
                   <a href="#ia" className="btn btn__Secundary principal">
                     Impulsa tu Red con IA
                   </a>
-                  <a href="" className="btn btn__Primary destok">
+                  <a
+                    id="PagoCrypto"
+                    href="#PagoCrypto"
+                    className="btn btn__Primary destok"
+                    onClick={CryptoPay}
+                  >
                     Pagar Membresia
                   </a>
                 </div>
@@ -165,7 +176,7 @@ export const Inicio = () => {
             <section className="main__main3">
               <div className="main__video container">
                 <iframe
-                  src="https://player.vimeo.com/video/894560725?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                  src="https://player.vimeo.com/video/899672027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                   frameborder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   width={660}
@@ -173,6 +184,7 @@ export const Inicio = () => {
                   className="livegood"
                 ></iframe>
               </div>
+
               <div className="header__main__btn">
                 <a href="" className="btn_header__main">
                   Academia LiveGood IA <RiShareBoxLine className="btn__btn" />

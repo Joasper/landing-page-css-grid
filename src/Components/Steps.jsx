@@ -6,7 +6,6 @@ import {
   FormControlLabel,
   FormGroup,
 } from "@mui/material";
-import { ChatGPT } from "./ChatGPT";
 
 const steps = [
   {
@@ -221,7 +220,11 @@ const steps = [
     title: "Respuesta",
     content: (
       <div
-        style={{ padding: "50px", paddingBottom: "150px", paddingTop: "100px" }}
+        style={{
+          padding: "50px",
+          paddingBottom: "150px",
+          paddingTop: "100px",
+        }}
       >
         <FormGroup>
           <CircularProgress
@@ -232,13 +235,12 @@ const steps = [
             className="circularsptps"
           />
 
-          <h2>Generando estrategia....</h2>
+          <h2>Generando estrategia.......</h2>
         </FormGroup>
       </div>
     ),
   },
 ];
-
 const StepsApp = () => {
   const { token } = theme.useToken();
   const [current, setCurrent] = useState(0);

@@ -1,8 +1,20 @@
+import { useDispatch, useSelector } from "react-redux";
 import { BD } from "../../Api/config";
 import Swal from "sweetalert2";
+import { GetUsers } from "../Store/Register/RegisterSlice";
 
 export const useSystemRegistro = () => {
-  const GetRegister = async () => {};
+  const dispatch = useDispatch();
+  const { users } = useSelector((state) => state.register);
+  const GetRegister = async () => {
+    try {
+      const { data } = await BD.get("/usuario");
+      dispatch(GetUsers(data));
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const AddRegister = async (data) => {
     console.log(data);
@@ -44,6 +56,7 @@ export const useSystemRegistro = () => {
 
   return {
     //*PROPERTYS
+    users,
 
     //*METHODS
     GetRegister,

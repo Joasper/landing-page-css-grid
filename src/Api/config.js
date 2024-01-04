@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const BD = axios.create({
-  baseURL: "http://localhost:4001/api",
+  baseURL: "https://base-datos-live-good.vercel.app/api",
 });

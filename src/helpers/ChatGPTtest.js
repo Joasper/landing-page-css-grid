@@ -4,22 +4,18 @@ export const generateTextFromFitnessContext = async (userResponses) => {
   const APIKEY = "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";
   console.log(userResponses);
 
-  const prompt = {
-    ServiciosFitness: userResponses.map((question) => ({
-      Pregunta: question.Pregunta,
-      Respuestas: question.Respuestas,
-    })),
-  };
-
   console.log(JSON.stringify(prompt));
 
   try {
     const response = await axios.post(
       "https://api.openai.com/v1/engines/text-davinci-003/completions",
       {
-        prompt: `Necesito que me crees una estreatgia en menos de 50 palabras o 100 cacteres que sea invoadora, mi empresa se llama LiveGood y empiza con formalidad, ejemplo: En liveGood te comendamos... algo asi${JSON.stringify(
-          prompt
-        )}"`,
+        prompt: `Nuestro negocio se enfoca en ayudar a las personas a generar estrategias únicas e innovadoras para ganar dinero con nuestros productos. Ofrecemos productos de alta calidad y queremos proporcionar a nuestros clientes oportunidades creativas para aumentar sus ingresos mediante el uso inteligente de nuestros productos.
+
+        [INSTRUCCIONES PARA RESPONDER]
+        1. Proporciona una estrategia única y creativa que nuestros clientes puedan utilizar para ganar dinero con nuestros productos.
+        2. Asegúrate de que la estrategia sea innovadora y se centre en cómo nuestros productos pueden ser una herramienta clave para generar ingresos.
+        3. Limita la respuesta principal a un par de frases.`,
         max_tokens: 150, // Modifica según tus necesidades
         temperature: 0.7, // Modifica según tus necesidades
       },

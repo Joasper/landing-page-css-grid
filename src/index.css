@@ -165,6 +165,7 @@ body {
 
 .main__main2 {
   grid-area: main2;
+  padding: 0px 0 !important;
 }
 
 .main__title {
@@ -177,6 +178,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  padding: 0px 0 !important;
 }
 
 .header__span {
@@ -193,7 +195,7 @@ body {
 
 .main__video {
   position: relative;
-  padding-bottom: 56.25%; /* Proporción 16:9 (9 / 16 = 0.5625) */
+  padding: 0px 0px; /* Proporción 16:9 (9 / 16 = 0.5625) */
   height: 0;
   overflow: hidden;
 }
@@ -209,7 +211,6 @@ body {
 .header__main__btn {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .btn_header__main {
@@ -217,6 +218,8 @@ body {
   text-decoration: none;
   width: 100%;
   max-width: 200px;
+  margin-bottom: 80px !important;
+  bottom: 40px !important;
 
   padding: 12px 18px;
   border-radius: 10px;
@@ -226,6 +229,7 @@ body {
   font-family: var(--SegundaFuente) !important;
   background-color: var(--ColorBTN) !important;
   border: 1px solid var(--Border-btn);
+  margin-top: -130px !important;
 }
 
 .btn__btn {
@@ -413,6 +417,31 @@ body {
   grid-template-columns: repeat(1, 1ft);
   grid-template-rows: repeat(1, 1ft);
   grid-template-areas: "element20";
+}
+.custom-table {
+  background-color: transparent; /* Hace que la tabla sea transparente */
+}
+
+.ant-table-thead > tr > th {
+  color: white; /* Cambia el color del texto en los encabezados a blanco */
+}
+
+.ant-table-tbody > tr > td {
+  color: white; /* Cambia el color del texto en las celdas a blanco */
+}
+
+.custom-table {
+  background-color: transparent; /* Hace que la tabla sea transparente */
+  width: 100px !important;
+}
+
+.custom-header {
+  color: white; /* Cambia el color del texto en los encabezados a blanco */
+}
+
+/* Para cambiar el color del texto en las celdas */
+.custom-table .MuiTableCell-root {
+  color: white; /* Cambia el color del texto en las celdas a blanco */
 }
 
 .main__carousel {
@@ -902,7 +931,7 @@ a {
     background-color: var(--ColorBTN) !important;
     border: 1px solid var(--Border-btn);
     margin-bottom: 20px;
-    margin-top: 30px;
+    margin-top: 40px !important;
   }
 
   .btn_header__main:hover {
